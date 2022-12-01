@@ -21,7 +21,9 @@ export class FoodPageComponent implements OnInit {
     activatedRoute.params.subscribe((params) => {
       // check is the params is not null
       if (params['id']) {
-        this.food = foodService.getFoodById(params['id']);
+        foodService.getFooddById(params['id']).subscribe((serverFood) => {
+          this.food = serverFood;
+        });
       }
     });
   }
